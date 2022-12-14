@@ -28,11 +28,11 @@ export class CustomersController {
   }
 
   @Put(':kennzeichen')
-  updateCutomerByKennzeichen(
+  async updateCutomerByKennzeichen(
     @Param('kennzeichen') kennzeichen: string,
     @Body() updateCustomerDto: UpdateCustomerDto,
   ) {
-    this.customersService.updateCustomerByKennzeichen(
+    await this.customersService.updateCustomerByKennzeichen(
       kennzeichen,
       updateCustomerDto,
     );
