@@ -1,3 +1,3 @@
-export class UpdateCustomerByKennzeichen {
-  carStatus: string;
+export class UpdateCustomerDto {
+  status: string;
 }

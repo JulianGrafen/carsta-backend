@@ -15,5 +15,5 @@ export class CustomerEntity {
   email: string;
 
   @Column()
-  carStatus: string;
+  status: string;
 }

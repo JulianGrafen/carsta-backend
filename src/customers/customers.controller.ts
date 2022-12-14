@@ -1,5 +1,5 @@
 import { CustomersService } from './customers.service';
-import { UpdateCustomerByKennzeichen } from '../dto/updateCustomer.dto';
+import { UpdateCustomerDto } from '../dto/updateCustomer.dto';
 import {
   Body,
   Controller,
@@ -30,8 +30,11 @@ export class CustomersController {
   @Put(':kennzeichen')
   updateCutomerByKennzeichen(
     @Param('kennzeichen') kennzeichen: string,
-    @Body() updateCutomerByKennzeichen: UpdateCustomerByKennzeichen,
+    @Body() updateCustomerDto: UpdateCustomerDto,
   ) {
-    this.customersService.updateCustomerByKennzeichen();
+    this.customersService.updateCustomerByKennzeichen(
+      kennzeichen,
+      updateCustomerDto,
+    );
   }
 }

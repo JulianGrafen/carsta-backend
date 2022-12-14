@@ -1,4 +1,4 @@
-import { UpdateCustomerByKennzeichen } from './../dto/updateCustomer.dto';
+import { UpdateCustomerParams } from './../utils/types';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -25,12 +25,8 @@ export class CustomersService {
   }
   updateCustomerByKennzeichen(
     kennzeichen: string,
-    carStatus: string,
-    updateCustomerByKennzeichen: UpdateCustomerByKennzeichen,
+    updateCarStatus: UpdateCustomerParams,
   ) {
-    this.customerRepository.update(
-      { carStatus },
-      { updateCustomerByKennzeichen },
-    );
+    this.customerRepository.update({ kennzeichen }, { ...updateCarStatus });
   }
 }
