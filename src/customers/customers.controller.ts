@@ -1,5 +1,14 @@
 import { CustomersService } from './customers.service';
-import { Body, Controller, Get, Header, Post } from '@nestjs/common';
+import { UpdateCustomerByKennzeichen } from '../dto/updateCustomer.dto';
+import {
+  Body,
+  Controller,
+  Get,
+  Header,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { NewCustomerDto } from '../dto/newCustomerDto';
 
 @Controller('createCustomer')
@@ -16,5 +25,13 @@ export class CustomersController {
   createCustomer(@Body() newCustomerDto: NewCustomerDto) {
     console.log(newCustomerDto);
     return this.customersService.createCustomer(newCustomerDto);
+  }
+
+  @Put(':kennzeichen')
+  updateCutomerByKennzeichen(
+    @Param('kennzeichen') kennzeichen: string,
+    @Body() updateCutomerByKennzeichen: UpdateCustomerByKennzeichen,
+  ) {
+    this.customersService.updateCustomerByKennzeichen();
   }
 }

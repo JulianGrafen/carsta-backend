@@ -1,3 +1,4 @@
+import { UpdateCustomerByKennzeichen } from './../dto/updateCustomer.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -21,5 +22,15 @@ export class CustomersService {
     const newCustomer = this.customerRepository.create(newCustomerDto);
     console.log('Customer Created');
     return this.customerRepository.save(newCustomer);
+  }
+  updateCustomerByKennzeichen(
+    kennzeichen: string,
+    carStatus: string,
+    updateCustomerByKennzeichen: UpdateCustomerByKennzeichen,
+  ) {
+    this.customerRepository.update(
+      { carStatus },
+      { updateCustomerByKennzeichen },
+    );
   }
 }
