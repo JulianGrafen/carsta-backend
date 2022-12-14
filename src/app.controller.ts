@@ -1,7 +1,7 @@
 import { Controller, Post, Body, Header } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { AppService } from './app.service';
-import { MyDto } from './dto/my.dto';
+import { NewCustomerDto } from './dto/newCustomerDto';
 
 @Controller('createCustomer')
 export class AppController {
@@ -10,7 +10,8 @@ export class AppController {
 
   @Post()
   @Header('Content-Type', 'application/json')
-  async createCustomer(@Body() body: MyDto) {
-    console.log(body);
+  createCustomer(@Body() newCustomerDto: NewCustomerDto) {
+    return this.appService.createCustomer(newCustomerDto);
+    console.log(newCustomerDto);
   }
 }
