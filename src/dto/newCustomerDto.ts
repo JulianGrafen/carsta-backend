@@ -1,6 +1,6 @@
 export class NewCustomerDto {
-  readonly name: string;
-  readonly kennzeichen: string;
-  readonly email: string;
-  readonly status: string;
+  kennzeichen: string;
+  name: string;
+  email: string;
+  status: string;
 }

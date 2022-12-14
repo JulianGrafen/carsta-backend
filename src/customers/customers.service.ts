@@ -8,10 +8,10 @@ import { CustomerEntity } from '../entities/CustomerEntity';
 export class CustomersService {
   constructor(
     @InjectRepository(CustomerEntity)
-    private readonly customerRepository: Repository<CustomerEntity>,
+    private customerRepository: Repository<CustomerEntity>,
   ) {}
 
-  findAll(): Promise<CustomerEntity[]> {
+  getCustomers(): Promise<CustomerEntity[]> {
     return this.customerRepository.find();
   }
   findOne(name: string): Promise<CustomerEntity> {

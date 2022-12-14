@@ -1,10 +1,15 @@
 import { CustomersService } from './customers.service';
-import { Body, Controller, Header, Post } from '@nestjs/common';
+import { Body, Controller, Get, Header, Post } from '@nestjs/common';
 import { NewCustomerDto } from '../dto/newCustomerDto';
 
-@Controller('customers')
+@Controller('createCustomer')
 export class CustomersController {
   constructor(private customersService: CustomersService) {}
+
+  @Get()
+  async getCustomers() {
+    return this.customersService.getCustomers();
+  }
 
   @Post()
   @Header('Content-Type', 'application/json')

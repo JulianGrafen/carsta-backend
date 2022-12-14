@@ -1,4 +1,4 @@
 import { Controller } from '@nestjs/common';
 
-@Controller('createCustomer')
+@Controller()
 export class AppController {}
