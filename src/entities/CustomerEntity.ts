@@ -1,8 +1,11 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'customers' })
 export class CustomerEntity {
   @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
   name: string;
 
   @Column()
@@ -12,5 +15,5 @@ export class CustomerEntity {
   email: string;
 
   @Column()
-  statu: string;
+  status: string;
 }

@@ -1,9 +1,7 @@
-import { CustomersModule } from './customers.module';
-import { Module, NestModule, RequestMethod } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CustomerEntity } from './entites/customer.enitity';
+import { Module } from '@nestjs/common';
+import { CustomerEntity } from './entities/CustomerEntity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CustomersModule } from './customers/customers.module';
 
 @Module({
   imports: [
@@ -15,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: 'Julian1803',
       database: 'carsta',
       entities: [CustomerEntity],
-      synchronize: false, //CHANGE BEFORE PRODUCTION TESTING
+      synchronize: true, //CHANGE BEFORE PRODUCTION TESTING
     }),
     CustomersModule,
   ],
