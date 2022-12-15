@@ -39,7 +39,10 @@ export class CustomersController {
     );
   }
   @Delete(':id')
-  async deleteUserByKennzeichen(@Param('id') id: number) {
+  async deleteUserByKennzeichen(
+    @Param('id') id: number,
+    //newCustomerDto: NewCustomerDto,
+  ) {
     await this.customersService.deleteCustomerByKennzeichen(id);
   }
 }
