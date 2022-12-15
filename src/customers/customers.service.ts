@@ -29,4 +29,10 @@ export class CustomersService {
   ) {
     this.customerRepository.update({ kennzeichen }, { ...updateCarStatus });
   }
+  deleteCustomerByKennzeichen(id: number) {
+    //this.customerRepository.findOneBy({ id }, { kennzeichen });
+    const customerId = id;
+    console.log(`Customer with ID ${customerId} deleted`);
+    return this.customerRepository.delete(id);
+  }
 }

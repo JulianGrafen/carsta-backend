@@ -3,6 +3,7 @@ import { UpdateCustomerDto } from '../dto/updateCustomer.dto';
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Header,
   Param,
@@ -28,7 +29,7 @@ export class CustomersController {
   }
 
   @Put(':kennzeichen')
-  async updateCutomerByKennzeichen(
+  async updateCustomerByKennzeichen(
     @Param('kennzeichen') kennzeichen: string,
     @Body() updateCustomerDto: UpdateCustomerDto,
   ) {
@@ -36,5 +37,9 @@ export class CustomersController {
       kennzeichen,
       updateCustomerDto,
     );
+  }
+  @Delete(':id')
+  async deleteUserByKennzeichen(@Param('id') id: number) {
+    await this.customersService.deleteCustomerByKennzeichen(id);
   }
 }
