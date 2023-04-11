@@ -2,7 +2,7 @@ import { MailService } from './../mail/mail.service';
 import { Body, Controller, Header, Post } from '@nestjs/common';
 import { NewCustomerDto } from '../dto/newCustomerDto';
 
-@Controller('customerMail')
+@Controller('customermail')
 export class MailController {
   constructor(private mailService: MailService) {}
 
