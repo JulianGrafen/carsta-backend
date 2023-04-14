@@ -29,7 +29,7 @@ export class CustomersService {
   ) {
     this.customerRepository.update({ kennzeichen }, { ...updateCarStatus });
   }
-  deleteCustomerByKennzeichen(id: number) {
+  deleteCustomerById(id: number) {
     const customerId = id;
     /*TODO: Implement function to show name of deleted customer -> Can be done with sending
     DELETE request to endpoint. Body filled from frontend.*/

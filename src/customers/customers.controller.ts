@@ -11,10 +11,11 @@ import {
   Put,
 } from '@nestjs/common';
 import { NewCustomerDto } from '../dto/newCustomerDto';
-
 @Controller('createCustomer')
 export class CustomersController {
-  constructor(private customersService: CustomersService) {}
+  constructor(private customersService: CustomersService) {
+    console.log('Create Customer Endpunkt wurde Aufgerufen');
+  }
 
   @Get()
   async getCustomers() {
@@ -40,6 +41,6 @@ export class CustomersController {
   }
   @Delete(':id')
   async deleteUserByKennzeichen(@Param('id') id: number) {
-    await this.customersService.deleteCustomerByKennzeichen(id);
+    await this.customersService.deleteCustomerById(id);
   }
 }
