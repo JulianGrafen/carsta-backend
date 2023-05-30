@@ -17,7 +17,7 @@ export class MailService {
     await this.mailerService.sendMail({
       to: newCustomer.email,
 
-      subject: 'Status Update zu deinem Auto',
+      subject: 'Neuer Auftragsstatus - OBI',
       template: './confirmation',
       context: {
         name: newCustomer.name,

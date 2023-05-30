@@ -22,6 +22,11 @@ export class CustomersController {
     return this.customersService.getCustomers();
   }
 
+  @Get(':name')
+  async getCustomerJobsByName(@Param('name') name: string) {
+    return this.customersService.findOne(name);
+  }
+
   @Post()
   @Header('Content-Type', 'application/json')
   createCustomer(@Body() newCustomerDto: NewCustomerDto) {

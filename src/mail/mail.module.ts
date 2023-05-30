@@ -13,7 +13,7 @@ import { MailController } from './mail.contoller';
         secure: true,
         auth: {
           user: 'carsta.info@gmail.com',
-          pass: '',
+          pass: 'lotiixxblexpoqsl',
         },
       },
       defaults: {

@@ -15,5 +15,8 @@ export class CustomerEntity {
   email: string;
 
   @Column()
+  artikelnummer: string;
+
+  @Column()
   status: string;
 }

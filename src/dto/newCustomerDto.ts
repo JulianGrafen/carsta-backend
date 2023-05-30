@@ -3,4 +3,5 @@ export class NewCustomerDto {
   name: string;
   email: string;
   status: string;
+  artikelnummer: string;
 }

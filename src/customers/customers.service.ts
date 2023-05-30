@@ -1,7 +1,7 @@
 import { UpdateCustomerParams } from './../utils/types';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { ILike, Like, Repository } from 'typeorm';
 import { NewCustomerDto } from '../dto/newCustomerDto';
 import { CustomerEntity } from '../entities/CustomerEntity';
 
@@ -15,9 +15,20 @@ export class CustomersService {
   getCustomers(): Promise<CustomerEntity[]> {
     return this.customerRepository.find();
   }
-  findOne(name: string): Promise<CustomerEntity> {
+
+  async getCustomerJobsByName(
+    name: string,
+  ): Promise<CustomerEntity | undefined> {
     return this.customerRepository.findOneBy({ name });
   }
+
+  findOne(name: string): Promise<CustomerEntity[]> {
+    const processedName = name.replace(/^(.[^%]+)%20(.[^%]+)$/, '$1 $2');
+    return this.customerRepository.find({
+      where: { name: ILike(`%${processedName}%`) },
+    });
+  }
+
   createCustomer(newCustomerDto: NewCustomerDto) {
     const newCustomer = this.customerRepository.create(newCustomerDto);
     console.log('Customer Created');
